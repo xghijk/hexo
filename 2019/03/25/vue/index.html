@@ -5,15 +5,20 @@
   
 
   
-  <title>Hexo</title>
+  <title>vue | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://xghijk.github.io/hexo/index.html">
+  <meta name="description" content="Vue：跟着14篇教程，从零开始做一个todos应用看了些文档，感觉到了vue的一些特点，感觉它肯定是非常方便非常有用的，奈何基础薄弱，让自己实际运用还是会很云里雾里的。还是先跟着教程走一走麻雀的五脏，加深一下理解。同时希望多用markdown。原教程：https://juejin.im/post/5c3e9f946fb9a049f06a85ff  入门仪式：Hello VueHello Vue既">
+<meta name="keywords" content="first">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue">
+<meta property="og:url" content="http://xghijk.github.io/hexo/2019/03/25/vue/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Vue：跟着14篇教程，从零开始做一个todos应用看了些文档，感觉到了vue的一些特点，感觉它肯定是非常方便非常有用的，奈何基础薄弱，让自己实际运用还是会很云里雾里的。还是先跟着教程走一走麻雀的五脏，加深一下理解。同时希望多用markdown。原教程：https://juejin.im/post/5c3e9f946fb9a049f06a85ff  入门仪式：Hello VueHello Vue既">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-25T15:46:48.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="vue">
+<meta name="twitter:description" content="Vue：跟着14篇教程，从零开始做一个todos应用看了些文档，感觉到了vue的一些特点，感觉它肯定是非常方便非常有用的，奈何基础薄弱，让自己实际运用还是会很云里雾里的。还是先跟着教程走一走麻雀的五脏，加深一下理解。同时希望多用markdown。原教程：https://juejin.im/post/5c3e9f946fb9a049f06a85ff  入门仪式：Hello VueHello Vue既">
   
     <link rel="alternate" href="/hexo/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -60,9 +65,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-vue" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-vue" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/hexo/2019/03/25/vue/" class="article-date">
   <time datetime="2019-03-25T04:57:06.000Z" itemprop="datePublished">2019-03-25</time>
@@ -75,8 +78,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/hexo/2019/03/25/vue/">vue</a>
+    <h1 class="article-title" itemprop="name">
+      vue
     </h1>
   
 
@@ -205,145 +208,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-makeTheme" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/hexo/2019/03/24/makeTheme/" class="article-date">
-  <time datetime="2019-03-24T11:32:24.000Z" itemprop="datePublished">2019-03-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/hexo/2019/03/24/makeTheme/">makeTheme</a>
-    </h1>
+    <a href="/hexo/2019/03/24/makeTheme/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">makeTheme</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="从零开始制作-Hexo-主题"><a href="#从零开始制作-Hexo-主题" class="headerlink" title="从零开始制作 Hexo 主题"></a>从零开始制作 Hexo 主题</h1><h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>本文将会从零开始开发一个简单的博客主题。样式主要参考 <a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo theme</a> 中的 <a href="https://github.com/lotabout/hexo-theme-noise" target="_blank" rel="noopener">Noise</a> 主题。</p>
-<p>开始之前你需要了解：</p>
-<ul>
-<li>模板引擎</li>
-<li>CSS预处理器</li>
-<li>Hexo 文档</li>
-</ul>
-<p>本文使用的模板引擎为 <a href="http://www.embeddedjs.com/" target="_blank" rel="noopener">ejs</a>，使用的 CSS 预处理器为 <a href="http://stylus-lang.com/" target="_blank" rel="noopener">stylus</a>。
-        
-          </p><p class="article-more-link">
-            <a href="/hexo/2019/03/24/makeTheme/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://xghijk.github.io/hexo/2019/03/24/makeTheme/" data-id="cjtoj27r40004yo9xows8q5f0" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/hexo/tags/first/">first</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-first-hexo" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/hexo/2019/03/23/first-hexo/" class="article-date">
-  <time datetime="2019-03-22T16:38:14.000Z" itemprop="datePublished">2019-03-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/hexo/2019/03/23/first-hexo/">first-hexo</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="第一次使用hexo建立博客的全过程"><a href="#第一次使用hexo建立博客的全过程" class="headerlink" title="第一次使用hexo建立博客的全过程"></a>第一次使用hexo建立博客的全过程</h1><p>记得第一次接触hexo时，心态复杂，据说它是为外行准备的快速建立博客的框架，按道理说应该没啥难度的，然而第一次接触还是感觉具有一定的门槛难度，遂搁置一旁，待我前端的经验又积累了些，再来看从零开始的教程，简单了许多，所以这应该算第二次接触吧。
-        
-          </p><p class="article-more-link">
-            <a href="/hexo/2019/03/23/first-hexo/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://xghijk.github.io/hexo/2019/03/23/first-hexo/" data-id="cjtoj27qp0000yo9xib8mu53f" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/hexo/tags/first/">first</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/hexo/2019/03/23/hello-world/" class="article-date">
-  <time datetime="2019-03-22T16:03:02.683Z" itemprop="datePublished">2019-03-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/hexo/2019/03/23/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.
-        
-          </p><p class="article-more-link">
-            <a href="/hexo/2019/03/23/hello-world/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://xghijk.github.io/hexo/2019/03/23/hello-world/" data-id="cjtoj27qv0001yo9x4r4mza3z" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
