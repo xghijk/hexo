@@ -84,62 +84,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>原文地址 <a href="https://blog.csdn.net/lishanleilixin/article/details/81091801" target="_blank" rel="noopener">https://blog.csdn.net/lishanleilixin/article/details/81091801</a> ，这个文章真好，解惑能力一级棒。希望自己向大佬汲取知识的同时也能学习到大佬解决问题的思路。</p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>先看三段代码：</p>
-<p>index.html:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;./index.js&quot; async&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
-<p>index.js: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import * as circle from &apos;./test&apos;;</span><br><span class="line"> </span><br><span class="line">console.log(&apos;圆面积：&apos; + circle.area(4));</span><br><span class="line">console.log(&apos;圆周长：&apos; + circle.circumference(14));</span><br></pre></td></tr></table></figure>
-<p>test.js:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">export function area(radius = 5) &#123;</span><br><span class="line">    return Math.PI * radius * radius;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line">export function circumference(radius = 5) &#123;</span><br><span class="line">    return 2 * Math.PI * radius;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>使用的是es6的module语法，但是通过file:///E:/PHP/node_test/fileAndHttp/index.html进行打开时浏览器会报一个关于CORS跨域的错误，网上查找的说是浏览器禁止访问本地文件。 </p>
-<h2 id="检查思路"><a href="#检查思路" class="headerlink" title="检查思路"></a>检查思路</h2><p>1、浏览器版本过低，不支持es6语法。于是升级浏览器至最新（Chrome）,但是问题依旧没有解决。</p>
-<p>2、本地不支持module模块，通过：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g es-checker</span><br><span class="line">$ es-checker</span><br></pre></td></tr></table></figure>
-<p>3、通过bable（在这里就不对bable做叙述了）将ES6语法转化成ES5语法，浏览器依旧报CORS跨域问题。 </p>
-<p>4、在外网一段回答中主要到回答者提到http和file,于是思考可能是协议使用错误。最后通过localhost本地服务器进行访问文件，报错消失。 </p>
-<h3 id="什么是File协议"><a href="#什么是File协议" class="headerlink" title="什么是File协议"></a>什么是File协议</h3><p>字面意思：本地文件传输协议</p>
-<p>什么是File：</p>
-<p>file协议主要用于访问本地计算机中的文件，好比通过Windows的资源管理器中打开文件或者通过右键单击‘打开’一样。</p>
-<p>如何使用：</p>
-<p>file协议的基本格式如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file:///文件路径</span><br></pre></td></tr></table></figure>
-<p>比如需要打开E盘下txt目录中的index.txt，那么在资源管理器或者浏览器地址栏中输入：file:///E:/txt/index.txt。用file:///+文件地址，其实等价于文件的地址。即： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file:///C:/Users/CLi/AppData/Local/Temp/WindowsLiveWriter1627300719/supfiles52F410/wangdan-se-436963[2].jpg</span><br></pre></td></tr></table></figure>
-<p>等价于： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:/Users/CLi/AppData/Local/Temp/WindowsLiveWriter1627300719/supfiles52F410/wangdan-se-436963[2].jpg</span><br></pre></td></tr></table></figure>
-<p>URI中问什么本地文件file后面跟三个斜杠？</p>
-<p>URI的结构为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scheme:[//[user:password@]host[:port]][/]path[?query][#fragment]</span><br></pre></td></tr></table></figure>
-<p>如果有host，前面需要加//，因此对于http或https等网络地址来说会写成： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://blog.csdn.net/lishanleilixin/article/category/7191777</span><br></pre></td></tr></table></figure>
-<p>这样看上去很自然。如果是文件的话，文件没有host，所以中间的host部分就不要了，就变成了: </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file:///lishanleilixin/article/category/7191777</span><br></pre></td></tr></table></figure>
-<p>因为如果没有host的话，第一个[]的内容就不存在了，这种同意的写法有一个标准叫CURIE。 </p>
-<h2 id="什么是http协议"><a href="#什么是http协议" class="headerlink" title="什么是http协议"></a>什么是http协议</h2><p>http协议是Hyper Text JTransfer Protocol,即超文本阐述协议的缩写。是用来从万维网服务器传输超文本到本地浏览器的传送协议，基于TCP/IP通信协议来传输数据。http协议工作于客户端-服务器架构上，浏览器作为http客户端通过url向http服务器端发送请求，服务器接收到请求后，向客户端发送请求。</p>
-<p>HTTP的URL：</p>
-<p>http使用统一资源标识符URI来传输数据和建立连接。而URL是一种特殊类型的URI。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.baidu.com/s?wd=csdn&amp;rsv_spt=1&amp;rsv_iqid=0xe20f5fa6000102e9&amp;issp=1&amp;f=8&amp;rsv_bp=1&amp;rsv_idx=2&amp;ie=utf-8&amp;rqlang=cn&amp;tn=62095104_9_oem_dg&amp;rsv_enter=0&amp;oq=http%25E5%258D%258F%25E8%25AE%25AE&amp;rsv_t=cb7eJrt8QfdumTZWig9t5bWhzpKMGLyic5Ap1V%2BZyjA0%2Bsb90A7ykpqzyVk7WUQpEpUaayWEhYo&amp;rsv_pq=876fe1b90002819e&amp;inputT=496865&amp;rsv_sug3=107&amp;bs=http%E5%8D%8F%E8%AE%AE</span><br></pre></td></tr></table></figure>
-<p>完整的URL包含下面几个部分：</p>
-<p>协议：该URL的协议部分为“https”，标识网页使用的是https协议，在internet中可以使用多种协议（http,https,ftp等）</p>
-<p>域名：一个URL中也可以使用IP作为域名，这个URL中域名为<a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a></p>
-<p>端口：跟在域名后，以“:”作为分隔符。如果省略端口，那么将采用默认端口。</p>
-<p>虚拟目录：虚拟目录不是必须部分。是从域名后第一个“/”开始到最后一个“/”为止。</p>
-<p>文件名：从域名后的最后一个“/”开始到“？”为止，是文件名部分，如果没有“?”,则是从域名后的最后一个“/”开始到“#”为止，是文件部分，如果没有“？”和“#”，那么从域名后的最后一个“/”开始到结束，都是文件名部分。文件名部分也不是一个URL必须的部分，如果省略该部分，则使用默认的文件名。</p>
-<p>锚：从“#”开始到最后都是锚，锚也不是一个URL必须的部分。</p>
-<p>参数：从“？”开始到“#”为止中间为参数，参数可以允许有多个参数，中间以“&amp;”作为分隔符。</p>
-<p>请求方法： </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">GET  请求指定的页面信息，并返回实体主体。</span><br><span class="line">HEAD     类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头</span><br><span class="line">POST     向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改。</span><br><span class="line">PUT  从客户端向服务器传送的数据取代指定的文档的内容。</span><br><span class="line">DELETE   请求服务器删除指定的页面。</span><br><span class="line">CONNECT  HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</span><br><span class="line">OPTIONS  允许客户端查看服务器的性能。</span><br><span class="line">TRACE    回显服务器收到的请求，主要用于测试或诊断。</span><br></pre></td></tr></table></figure>
-<h2 id="浏览器通过file-访问文件和http-访问文件的区别"><a href="#浏览器通过file-访问文件和http-访问文件的区别" class="headerlink" title="浏览器通过file://访问文件和http://访问文件的区别"></a>浏览器通过file://访问文件和http://访问文件的区别</h2><p>file协议用于访问本地计算机中的文件，好比通过资源管理器中打开文件一样，需要主要的是它是针对本地的，即file协议是访问你本机的文件资源。</p>
-<p>http访问本地的html文件，相当于将本机作为了一台http服务器，然后通过localhost访问的是你自己电脑上的本地服务器，再通过http服务器去访问你本机的文件资源。</p>
-<p>再简单点就是file只是简单请求了本地文件，将其作为一个服务器未解析的静态文件打开。而http是在本地搭建了一个服务器再通过服务器去动态解析拿到文件。</p>
-<p>其他区别：</p>
-<p>file协议只能在本地访问</p>
-<p>本地搭建http服务器开放端口后他人也可以通过http访问到你电脑中的文件，但是file协议做不到</p>
-<p>file协议对应有一个类似http的远程访问，就是ftp协议，即文件传输协议。</p>
-<p>file协议无法实现跨域</p>
-<h2 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h2><p>开始通过file协议直接访问index.html，在index.html中静态引入index.js，在index.js中import test.js。在import的过程中需要http服务器去解析es6语法并添加header头信息去跨域引入test.js，但是file协议相当于通过资源管理器静态访问index.html，中间的过程没有http服务器参与解析，所以无法识别es6的import语法。</p>
-
+        <p>原文地址 <a href="https://blog.csdn.net/lishanleilixin/article/details/81091801" target="_blank" rel="noopener">https://blog.csdn.net/lishanleilixin/article/details/81091801</a> ，这个文章真好，解惑能力一级棒。希望自己向大佬汲取知识的同时也能学习到大佬解决问题的思路。
+        
+          </p><p class="article-more-link">
+            <a href="/hexo/2019/04/05/file-protocol/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
